@@ -1,0 +1,3 @@
+Accelerator "treeletdumpbvh" "integer maxtreeletbytes" [100000000]
+
+Include "bmw-m6.pbrt"
