@@ -1,0 +1,70 @@
+
+LookAt 500 100 0   0 80 -120  0 0 1
+Rotate -5 0 0 1
+Camera "perspective" "float fov" [29]
+
+Film "image"
+     "integer xresolution" [1024] "integer yresolution" [600]
+     "string filename" "killeroo-tiny.png"
+
+Sampler "halton" "integer pixelsamples" [4]
+Integrator "path" "integer maxdepth" [5]
+
+WorldBegin
+
+LightSource "infinite" "rgb L" [0.5 0.5 0.5]
+
+AttributeBegin
+    Texture "checks" "spectrum" "checkerboard"
+            "float uscale" [20] "float vscale" [20]
+             "rgb tex1" [0.7 0.7 0.7] "rgb tex2" [0.3 0.3 0.3]
+
+    Material "matte" "texture Kd" "checks"
+    Translate 0 0 -140
+
+    Shape "trianglemesh" "point P" [ -1000 -1000 0 1000 -1000 0 1000 1000 0 -1000 1000 0 ]
+        "float uv" [ 0 0 5 0 5 5 0 5 ]
+        "integer indices" [ 0 1 2 2 3 0]
+
+    Shape "trianglemesh" "point P" [ -400 -1000 -1000   -400 1000 -1000   -400 1000 1000 -400 -1000 1000 ]
+        "float uv" [ 0 0 5 0 5 5 0 5 ]
+        "integer indices" [ 0 1 2 2 3 0]
+
+AttributeEnd
+
+AttributeBegin
+
+    Scale .5 .5 .5
+    Rotate -60 0 0 1
+    
+    Material "matte" "rgb Kd" [1 0 0]
+    Translate 200 200 -140
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [1 0.65 0]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [1 1 0]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [0 0.5 0]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [0 0 1]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [0.3 0 0.51]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+    Material "matte" "rgb Kd" [0.93 0.51 0.93]
+    Translate -100 0 0
+    Include "geometry/killeroo.pbrt"
+
+AttributeEnd
+
+WorldEnd

@@ -1,0 +1,3 @@
+Accelerator "treeletdumpbvh" "integer maxtreeletbytes" [10000000]
+
+Include "killeroo-tiny.pbrt"
